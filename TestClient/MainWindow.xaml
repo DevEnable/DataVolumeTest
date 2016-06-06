@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Data Volume Test" Height="350" Width="525">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="10,10,10,10"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="LargeDataTablesButton" Content="Large DataTables"></Button>
+        <Button x:Name="OptimisedSqlButton" Grid.Row="1" Content="Optimised SQL"></Button>
+        <Button x:Name="ResetDatabaseButton" Grid.Row="2" Content="Reset Database"></Button>
         
     </Grid>
 </Window>
