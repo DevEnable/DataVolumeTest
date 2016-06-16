@@ -12,6 +12,6 @@ BEGIN
 		RepeatableC varchar(50) NOT NULL,
 		RepeatableD varchar(128) NOT NULL,
 		RepeatableF decimal(18, 0) NOT NULL,
-		RepeatableG decimal*18, 0) NOT NULL
+		RepeatableG decimal(18, 0) NOT NULL
 	)
 END
