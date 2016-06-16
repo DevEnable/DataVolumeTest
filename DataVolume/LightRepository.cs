@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlTypes;
 using System.Threading.Tasks;
+using Dapper;
 using DataVolume.Model;
 
 namespace DataVolume
@@ -15,6 +15,7 @@ namespace DataVolume
         private const string ColumnE = "ColumnE";
         private const string RepeatableId = "RepeatableId";
 
+        private const string Id = "Id";
         private const string RepeatableB = "RepeatableB";
         private const string RepeatableC = "RepeatableC";
         private const string RepeatableD = "RepeatableD";
@@ -27,18 +28,19 @@ namespace DataVolume
 
             return _commiter.Commit(sql, CommandType.StoredProcedure, new Dictionary<string, object>
             {
-                { "tvp", CreateTvpDataTable(data) },
-                { "lookup", CreateLookupDataTable(lookupData) },
-                { "date", new SqlDateTime(DateTime.Now) }
+                { "tvp", CreateTvpDataTable(data).AsTableValuedParameter("LightTestTVP") },
+                { "lookup", CreateLookupDataTable(lookupData).AsTableValuedParameter("LightLookup") },
+                { "date", DateTime.Now }
             });
         }
 
         private static DataTable CreateTvpDataTable(IEnumerable<LightTvp> data)
         {
             DataTable table = new DataTable();
+
+            table.AddColumn<int>(RepeatableId);
             table.AddColumn<string>(ColumnA);
             table.AddColumn<string>(ColumnE);
-            table.AddColumn<int>(RepeatableId);
 
             PopulateDataTable(table, data);
 
@@ -48,6 +50,7 @@ namespace DataVolume
         private static DataTable CreateLookupDataTable(IEnumerable<LightLookup> lookupData)
         {
             DataTable table = new DataTable();
+            table.AddColumn<int>(Id);
             table.AddColumn<string>(RepeatableB);
             table.AddColumn<string>(RepeatableC);
             table.AddColumn<string>(RepeatableD);
@@ -65,9 +68,9 @@ namespace DataVolume
             {
                 DataRow row = table.NewRow();
 
+                row[RepeatableId] = item.RepeatableId;
                 row[ColumnA] = item.ColumnA;
                 row[ColumnE] = item.ColumnE;
-                row[RepeatableId] = item.RepeatableId;
 
                 table.Rows.Add(row);
             }
@@ -79,8 +82,9 @@ namespace DataVolume
             {
                 DataRow row = table.NewRow();
 
+                row[Id] = item.Id;
                 row[RepeatableB] = item.ColumnB;
-                row[RepeatableG] = item.ColumnC;
+                row[RepeatableC] = item.ColumnC;
                 row[RepeatableD] = item.ColumnD;
                 row[RepeatableF] = item.ColumnF;
                 row[RepeatableG] = item.ColumnG;

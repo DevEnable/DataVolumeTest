@@ -25,7 +25,7 @@
             <TextBox x:Name="NumRecords"  Margin="4,8" MinWidth="120">100000</TextBox>
         </StackPanel>
         <Button x:Name="LargeDataTablesButton" Grid.Row="2" Content="Large DataTables" Click="LargeDataTablesButton_Click"></Button>
-        <Button x:Name="OptimisedSqlButton" Grid.Row="3" Content="Optimised SQL"></Button>
+        <Button x:Name="OptimisedSqlButton" Grid.Row="3" Content="Optimised SQL" Click="OptimisedSqlButton_Click"></Button>
         <Button x:Name="ResetDatabaseButton" Grid.Row="4" Content="Reset Database" Click="ResetDatabaseButton_Click"></Button>
 
     </Grid>

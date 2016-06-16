@@ -1,8 +1,8 @@
 ﻿IF NOT EXISTS (SELECT * FROM sys.types WHERE is_table_type = 1 AND name = 'LightTestTVP')
 BEGIN
 	CREATE TYPE dbo.LightTestTVP AS TABLE(
-		ColumnA varchar(255) NOT NULL,
 		RepeatableId INT NOT NULL,
+		ColumnA varchar(255) NOT NULL,
 		ColumnE varchar(2000) NULL
 	)
 
