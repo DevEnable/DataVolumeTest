@@ -16,10 +16,12 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="LargeDataTablesButton" Content="Large DataTables"></Button>
-        <Button x:Name="OptimisedSqlButton" Grid.Row="1" Content="Optimised SQL"></Button>
-        <Button x:Name="ResetDatabaseButton" Grid.Row="2" Content="Reset Database"></Button>
-        
+        <Label x:Name="LastCommandOutput"></Label>
+        <Button x:Name="LargeDataTablesButton" Grid.Row="1" Content="Large DataTables"></Button>
+        <Button x:Name="OptimisedSqlButton" Grid.Row="2" Content="Optimised SQL"></Button>
+        <Button x:Name="ResetDatabaseButton" Grid.Row="3" Content="Reset Database" Click="ResetDatabaseButton_Click"></Button>
+
     </Grid>
 </Window>
