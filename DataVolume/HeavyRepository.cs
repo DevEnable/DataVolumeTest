@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlTypes;
 using System.Threading.Tasks;
+using Dapper;
 using DataVolume.Model;
 
 namespace DataVolume
@@ -27,7 +28,7 @@ namespace DataVolume
 
             return _commiter.Commit(sql, CommandType.Text, new Dictionary<string, object>
             {
-                { "tvp", CreateDataTable(data) }
+                { "tvp", CreateDataTable(data).AsTableValuedParameter("TestTVP") }
             });
         }
 

@@ -14,14 +14,19 @@
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="LastCommandOutput"></Label>
-        <Button x:Name="LargeDataTablesButton" Grid.Row="1" Content="Large DataTables"></Button>
-        <Button x:Name="OptimisedSqlButton" Grid.Row="2" Content="Optimised SQL"></Button>
-        <Button x:Name="ResetDatabaseButton" Grid.Row="3" Content="Reset Database" Click="ResetDatabaseButton_Click"></Button>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label Margin="4">Number of records</Label>
+            <TextBox x:Name="NumRecords"  Margin="4,8" MinWidth="120">100000</TextBox>
+        </StackPanel>
+        <Button x:Name="LargeDataTablesButton" Grid.Row="2" Content="Large DataTables" Click="LargeDataTablesButton_Click"></Button>
+        <Button x:Name="OptimisedSqlButton" Grid.Row="3" Content="Optimised SQL"></Button>
+        <Button x:Name="ResetDatabaseButton" Grid.Row="4" Content="Reset Database" Click="ResetDatabaseButton_Click"></Button>
 
     </Grid>
 </Window>
