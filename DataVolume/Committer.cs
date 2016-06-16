@@ -10,7 +10,7 @@ namespace DataVolume
 {
     public class Committer
     {
-        public async Task<int> Commit(string sql, CommandType commandType, Dictionary<string, DataTable> parameters)
+        public async Task<int> Commit(string sql, CommandType commandType, Dictionary<string, object> parameters)
         {
             using (
                 SqlConnection connection =

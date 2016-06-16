@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Threading.Tasks;
@@ -26,9 +25,7 @@ namespace DataVolume
             const string sql = "INSERT INTO [dbo].[TestTable](ColumnA, ColumnB, ColumnC, ColumnD, ColumnE, ColumnF, ColumnG, ColumnH, ColumnI) " +
                 "SELECT * from @tvp";
 
-            throw new NotImplementedException();
-
-            return _commiter.Commit(sql, CommandType.Text, new Dictionary<string, DataTable>
+            return _commiter.Commit(sql, CommandType.Text, new Dictionary<string, object>
             {
                 { "tvp", CreateDataTable(data) }
             });
