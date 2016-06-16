@@ -10,7 +10,7 @@ namespace DataVolume
 {
     public class Committer
     {
-        public async Task<int> Commit(string sql, Dictionary<string, DataTable> parameters)
+        public async Task<int> Commit(string sql, CommandType commandType, Dictionary<string, DataTable> parameters)
         {
             using (
                 SqlConnection connection =
@@ -26,7 +26,7 @@ namespace DataVolume
                     dapperParameters.Add(tvp.Key, tvp.Value);
                 }
 
-                return await connection.ExecuteAsync(sql, dapperParameters, commandTimeout: 120);
+                return await connection.ExecuteAsync(sql, dapperParameters, commandType: commandType, commandTimeout: 120);
             }
         }
     }

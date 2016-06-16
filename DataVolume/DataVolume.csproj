@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Committer.cs" />
+    <Compile Include="DataTableExtensions.cs" />
+    <Compile Include="HeavyRepository.cs" />
+    <Compile Include="LightRepository.cs" />
+    <Compile Include="Model\HeavyTvp.cs" />
+    <Compile Include="Model\LightTvp.cs" />
+    <Compile Include="Model\LightLookup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
